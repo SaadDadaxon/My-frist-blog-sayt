@@ -1,0 +1,23 @@
+<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index-2.html">Read<i>it</i>.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="{% url 'blog:index'%}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'blog:list'%}" class="nav-link">Articles</a></li>
+                <li class="nav-item"><a href="{% url 'about:index'%}" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="{% url 'contact:index'%}" class="nav-link">Contact</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item"><a href="" class="nav-link">{% if request.user.first_name %} {{request.user.first_name}} {% else %} {{request.user}} {% endif %}</a></li>
+                <li class="nav-item"><a href="{% url 'account:logout'%}" class="nav-link">logout</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'account:login'%}" class="nav-link">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
