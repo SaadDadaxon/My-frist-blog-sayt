@@ -32,7 +32,7 @@ def article_list(request):
     if search:
         articles = articles.filter(title__icontains=search)
     page_number = request.GET.get('page', 1)
-    paginator = Paginator(articles, 1)
+    paginator = Paginator(articles, 3)
     try:
         page_obj = paginator.page(page_number)
     except PageNotAnInteger:

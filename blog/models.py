@@ -32,7 +32,7 @@ class Article(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    description = models.TextField()
+    body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
